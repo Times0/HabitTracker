@@ -2,7 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import Week from "./Week";
 
-export default function Habit({ name }) {
+export default function HabitBox({ name }) {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>{name}</Text>
@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderColor: "#ddd",
     backgroundColor: "#f8f8f8",
+    width: "90%",
   },
   text: {
     fontSize: 18,

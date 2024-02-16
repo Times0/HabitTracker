@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, StyleSheet } from "react-native";
-import { CheckBox } from "react-native-elements";
+import Checkbox from "expo-checkbox";
+import * as Haptics from "expo-haptics";
 
 export default function Week() {
   const [checked, setChecked] = useState([
@@ -17,16 +18,17 @@ export default function Week() {
     const newChecked = [...checked];
     newChecked[index] = !newChecked[index];
     setChecked(newChecked);
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
   };
 
   return (
     <View style={styles.container}>
       {checked.map((isChecked, index) => (
-        <CheckBox
+        <Checkbox
           key={index}
-          checked={isChecked}
-          onPress={() => toggleChecked(index)}
-          containerStyle={styles.checkbox}
+          style={styles.checkbox}
+          value={isChecked}
+          onValueChange={() => toggleChecked(index)}
         />
       ))}
     </View>
@@ -40,9 +42,5 @@ const styles = StyleSheet.create({
     marginTop: 10,
     flexWrap: "wrap",
   },
-  checkbox: {
-    flex: 1,
-    padding: 0,
-    margin: 0,
-  },
+  checkbox: {},
 });
