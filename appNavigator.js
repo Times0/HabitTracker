@@ -20,7 +20,7 @@ const navigationTheme = {
 };
 
 function AppNavigator() {
-  const { accentColor, setAccentColor } = React.useContext(AccentColorContext);
+  const { accentColor } = React.useContext(AccentColorContext);
   return (
     <NavigationContainer theme={navigationTheme}>
       <Tab.Navigator
@@ -42,7 +42,8 @@ function AppNavigator() {
           tabBarInactiveTintColor: "gray",
           tabBarStyle: {
             display: "flex",
-            // backgroundColor: "black", // Set the background color to black
+            padding: 10,
+            backgroundColor: "black",
           },
           tabBarLabelStyle: {
             fontSize: 12,
