@@ -1,12 +1,6 @@
-import React, { useState } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  Animated,
-  FlatList,
-  TouchableOpacity,
-} from "react-native";
+import React, { useState, Context } from "react";
+import { AccentColorContext } from "../App";
+import { View, StyleSheet, FlatList, TouchableOpacity } from "react-native";
 
 import { Dimensions } from "react-native";
 
@@ -26,18 +20,17 @@ const primaryColors = [
 ];
 
 function ProfileScreen({ navigation }) {
-  const [selectedColor, setSelectedColor] = useState(null);
+  const { accentColor, setAccentColor } = React.useContext(AccentColorContext);
 
   const renderColorOption = ({ item }) => (
     <TouchableOpacity
       style={[
         styles.colorOption,
         { backgroundColor: item },
-        item === selectedColor ? styles.selectedColorOption : null,
+        item === accentColor ? styles.selectedColorOption : null,
       ]}
       onPress={() => {
-        navigation.setOptions({ tabBarActiveTintColor: item });
-        setSelectedColor(item);
+        setAccentColor(item);
       }}
     />
   );
