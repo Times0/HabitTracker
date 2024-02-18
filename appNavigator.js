@@ -1,11 +1,12 @@
 import * as React from "react";
-import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import ProfileScreen from "./screens/ProfileScreen";
 import TodayScreen from "./screens/TodayScreen";
 import HabitsScreen from "./screens/HabitsScreen";
 import Ionicons from "react-native-vector-icons/Ionicons";
 import { AccentColorContext } from "./App";
+import { NavigationContainer } from "@react-navigation/native";
+import AddHabitScreen from "./screens/AddHabitScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -55,6 +56,11 @@ function AppNavigator() {
         <Tab.Screen name="Today" component={TodayScreen} />
         <Tab.Screen name="Habits" component={HabitsScreen} />
         <Tab.Screen name="Profile" component={ProfileScreen} />
+        <Tab.Screen
+          name="AddHabit"
+          component={AddHabitScreen}
+          options={{ tabBarButton: () => null, tabBarVisible: false }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );

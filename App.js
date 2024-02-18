@@ -1,6 +1,6 @@
 import React from "react";
 import AppNavigator from "./appNavigator";
-import { useState, Context } from "react";
+import { useState } from "react";
 import { StatusBar, StyleSheet, View } from "react-native";
 
 export const AccentColorContext = React.createContext();
